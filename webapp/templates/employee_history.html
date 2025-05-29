@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Task History</title>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>📁 Task History for {{ employee_id }}</h2>
+
+    <p><a href="{{ url_for('hr_dashboard') }}">← Back to HR Dashboard</a></p>
+
+    {% if history %}
+        <table border="1" cellpadding="8">
+            <tr>
+                <th>Task</th>
+                <th>Emotion</th>
+                <th>Timestamp</th>
+                <th>Status</th>
+            </tr>
+            {% for task, emotion, timestamp, status in history %}
+            <tr>
+                <td>{{ task }}</td>
+                <td>{{ emotion }}</td>
+                <td>{{ timestamp }}</td>
+                <td>{{ status }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No task history found for this employee.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+<head>
+    <meta charset="UTF-8">
+    <title>HR Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+
+<h2>HR Login</h2>
+<form method="POST">
+    <label>Username:</label>
+    <input type="text" name="username" required><br>
+    <label>Password:</label>
+    <input type="password" name="password" required><br>
+    <button type="submit">Login</button>
+</form>
+
+<nav>
+    <a href="/">🏠 Home</a> |
+    <a href="{{ url_for('hr_login') }}">🔐 HR Login</a>
+  </nav>
+{% if error %}<p style="color:red">{{ error }}</p>{% endif %}

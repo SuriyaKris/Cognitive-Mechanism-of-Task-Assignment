@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Task Submitted{% endblock %}
+
+{% block content %}
+<h3>✅ Task Completed</h3>
+<p><strong>{{ employee_id }}</strong> has completed task: <b>{{ task }}</b></p>
+<p>The task has been sent to HR for review and rating.</p>
+
+<hr>
+<p><a href="{{ url_for('login') }}">🏠 Return to Home</a></p>
+{% endblock %}

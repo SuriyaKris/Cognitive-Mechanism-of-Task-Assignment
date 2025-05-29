@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><title>Task Assigned</title>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Task Assigned</h2>
+    <p><strong>Detected Emotion Vector:</strong></p>
+    <ul>
+        {% for label, prob in emotion_vector %}
+
+            <li>{{ label.capitalize() }}: {{ "%.4f"|format(prob) }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><strong>Recommended Task:</strong> {{ task }}</p>
+    <p><strong>Relevance Score:</strong> {{ score }}</p>
+
+    <form method="POST" action="{{ url_for('mark_completed', employee_id=employee_id, task=task) }}">
+        <input type="hidden" name="emotion" value="{{ dominant_emotion }}">
+        <button type="submit">Mark Task as Completed</button>
+    </form>
+</body>
+</html>

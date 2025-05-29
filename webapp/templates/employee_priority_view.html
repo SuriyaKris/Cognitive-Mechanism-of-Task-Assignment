@@ -1,0 +1,14 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Priority</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+
+<h2>Priority Table - {{ employee_id }}</h2>
+<table border="1">
+    <tr><th>Emotion</th><th>Task</th><th>Score</th></tr>
+    {% for emotion, task, score in priorities %}
+        <tr><td>{{ emotion }}</td><td>{{ task }}</td><td>{{ "%.4f"|format(score) }}</td></tr>
+    {% endfor %}
+</table>

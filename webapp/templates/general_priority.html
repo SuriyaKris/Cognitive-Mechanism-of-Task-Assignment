@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>General Priority Tables</title>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>📊 General Priority Tables</h2>
+
+    <p><a href="{{ url_for('hr_dashboard') }}">← Back to HR Dashboard</a></p>
+
+    <h3>💻 Developer</h3>
+    {% for emotion, tasks in dev.items() %}
+        <h4>{{ emotion.capitalize() }}</h4>
+        <ul>
+            {% for task, score in tasks.items() %}
+                <li>{{ task }} – Score: {{ "%.2f"|format(score) }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+    <h3>⚙️ DevOps Engineer</h3>
+    {% for emotion, tasks in devops.items() %}
+        <h4>{{ emotion.capitalize() }}</h4>
+        <ul>
+            {% for task, score in tasks.items() %}
+                <li>{{ task }} – Score: {{ "%.2f"|format(score) }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+    <h3>🎨 Product Designer</h3>
+    {% for emotion, tasks in designer.items() %}
+        <h4>{{ emotion.capitalize() }}</h4>
+        <ul>
+            {% for task, score in tasks.items() %}
+                <li>{{ task }} – Score: {{ "%.2f"|format(score) }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>

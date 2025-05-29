@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Employee Login</title>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+
+</head>
+<body>
+    <h2>Login - Cognitive Task Assigner</h2>
+    <form method="POST">
+        <label for="employee_id">Enter Employee ID:</label>
+        <input type="text" name="employee_id" required>
+        <button type="submit">Continue</button>
+    </form>
+    <nav>
+        <a href="/">🏠 Home</a> |
+        <a href="{{ url_for('hr_login') }}">🔐 HR Login</a>
+      </nav>
+          
+</body>
+</html>

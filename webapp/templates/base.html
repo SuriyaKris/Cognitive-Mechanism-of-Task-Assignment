@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Cognitive Task Assigner{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h2 style="margin-top: 20px;">🧠 Cognitive Task Assignment System</h2>
+        <hr>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer style="margin-top: 50px; font-size: 12px; text-align: center; color: #999;">
+        <p>© 2025 </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<head>
+    <meta charset="UTF-8">
+    <title>HR Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+
+<h2>HR Dashboard - Pending Task Reviews</h2>
+
+<p>
+    <a href="{{ url_for('general_priority') }}">📊 View General Priority Tables</a> |
+    <p><a href="{{ url_for('hr_dashboard_extended') }}">🔍 Explore Employee History & Priority</a></p>
+
+    <a href="{{ url_for('hr_logout') }}">🔓 Logout</a>
+</p>
+
+{% if tasks %}
+    <ul>
+        {% for t in tasks %}
+            <li>
+                <b>{{ t[1] }}</b> ({{ t[2] }}) - Emotion: {{ t[3] }} at {{ t[4] }}
+                [<a href="{{ url_for('rate_task', task_id=t[0]) }}">Rate</a>] |
+                [<a href="{{ url_for('view_priorities', employee_id=t[1]) }}">View Priorities</a>] |
+                [<a href="{{ url_for('employee_history', employee_id=t[1]) }}">History</a>]
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No pending tasks for review.</p>
+
+{% endif %}

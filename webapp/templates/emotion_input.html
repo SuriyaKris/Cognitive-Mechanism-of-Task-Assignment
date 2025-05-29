@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Emotion Input{% endblock %}
+
+{% block content %}
+<h3>📥 Enter Emotion Inputs</h3>
+
+<form method="POST">
+    <label for="text_input">Enter a short description of how you're feeling:</label>
+    <textarea name="text_input" rows="3" placeholder="I'm feeling a bit anxious but ready to work..." required></textarea>
+
+    <div class="status-section">
+        <p><strong>🎤 Mic:</strong> <span id="mic-status">Recording...</span></p>
+        <p><strong>📸 Webcam:</strong> <span id="cam-status">Capturing...</span></p>
+    </div>
+
+    <button type="submit">Submit Emotion</button>
+</form>
+
+<script>
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        const micStatus = document.getElementById("mic-status");
+        const camStatus = document.getElementById("cam-status");
+
+        micStatus.style.color = "green";
+        camStatus.style.color = "green";
+    });
+</script>
+{% endblock %}

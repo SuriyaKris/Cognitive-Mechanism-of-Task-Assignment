@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Select Role</title></head>
+<body>
+    <h2>Welcome, {{ employee_id }}</h2>
+    <form method="POST">
+        <label>Select your role:</label><br><br>
+        <input type="radio" name="role" value="developer" required> Developer<br>
+        <input type="radio" name="role" value="devops"> DevOps Engineer<br>
+        <input type="radio" name="role" value="designer"> Product Designer<br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
